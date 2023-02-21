@@ -767,7 +767,7 @@ class ADXIndicator(IndicatorMixin):
                 - (self._din[i - 1] / float(self._window))
                 + neg[self._window + i]
             )
-
+    ''' 
     def adx(self) -> pd.Series:
         """Average Directional Index (ADX)
 
@@ -775,13 +775,10 @@ class ADXIndicator(IndicatorMixin):
             pandas.Series: New feature generated.tr
         """
         dip = np.zeros(len(self._trs))
-
-        for idx, value in enumerate(self._trs):
-            dip[idx] = 100 * (self._dip[idx] / value)
-
         din = np.zeros(len(self._trs))
 
         for idx, value in enumerate(self._trs):
+            dip[idx] = 100 * (self._dip[idx] / value)
             din[idx] = 100 * (self._din[idx] / value)
 
         directional_index = 100 * np.abs((dip - din) / (dip + din))
@@ -830,7 +827,7 @@ class ADXIndicator(IndicatorMixin):
             pd.Series(din, index=self._close.index), value=20
         )
         return pd.Series(adx_neg_series, name="adx_neg")
-
+     '''
 
 class VortexIndicator(IndicatorMixin):
     """Vortex Indicator (VI)
