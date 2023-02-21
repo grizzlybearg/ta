@@ -767,7 +767,7 @@ class ADXIndicator(IndicatorMixin):
                 - (self._din[i - 1] / float(self._window))
                 + neg[self._window + i]
             )
-    ''' 
+    
     def adx(self) -> pd.Series:
         """Average Directional Index (ADX)
 
@@ -827,7 +827,7 @@ class ADXIndicator(IndicatorMixin):
             pd.Series(din, index=self._close.index), value=20
         )
         return pd.Series(adx_neg_series, name="adx_neg")
-     '''
+     
 
 class VortexIndicator(IndicatorMixin):
     """Vortex Indicator (VI)
